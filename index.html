@@ -8,14 +8,85 @@
     <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
     <!-- Materialize CSS -->
     <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Materialize Boilerplate</title>
+    <title>Bizland Theme</title>
 </head>
 
 <body>
-    <h1>Let's Build a Site Using <span class="teal-text">Materialize</span></h1>
+    <header class="main-header">
+        <div class="primary-overlay">
+            <div class="navbar-fixed">
+                <nav class="transparent">
+                    <div class="container">
+                        <div class="nav-wrapper">
+                            <a href="#home" class="brand-logo">Bizland</a>
+                            <a href="#" class="button-collapse" data-activates="mobile-nav">
+                                <i class="material-icons">menu</i>
+                            </a>
+                            <ul class="right hide-on-med-and-down">
+                                <li>
+                                    <a href="#home">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#about">About</a>
+                                </li>
+                                <li>
+                                    <a href="#testimonials">Testimonials</a>
+                                </li>
+                                <li>
+                                    <a href="#contact">Contact</a>
+                                </li>
+                                <li>
+                                    <a class="btn blue" href="#!">Download</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- SideNav Note: must be under the fixed to work for a fixed navbar-->
+            <ul class="side-nav" id="mobile-nav">
+                <h4 class="blue-grey-text darken-3 center">
+                    Bizland
+                </h4>
+                <li>
+                    <div class="divider"></div>
+                </li>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#testimonials">Testimonials</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+            <!-- showcase -->
+            <div class="showcase container">
+                <div class="row">
+                    <div class="col s12 main-text">
+                        <h5>You found the...</h5>
+                        <h1>Right Place To Start</h1>
+                        <p class="flow-text">To take your business to the next level with our services that have taken
+                            companies to the fortune 500</p>
+                        <br>
+                        <a href="#about" class="btn btn-large white black-text">Learn More</a>
+                        <a href="#contact" class="white-text">
+                            <i class="material-icons medium scroll-icon">arrow_drop_down_circle</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
 
     <!-- Scripts -->
@@ -27,7 +98,8 @@
     <script>
         $(document).ready(function () {
             // Custom and Init JQueries
-
+            // Init sidenav
+            $('.button-collapse').sideNav();
         });
     </script>
 </body>
