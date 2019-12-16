@@ -200,6 +200,35 @@
         </div>
     </section>
     <!-- Section: Contact -->
+    <section class="section section-contact center scrollspy" id="contact">
+        <div id="googlemaps"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 offset-m6">
+                    <div class="card-panel z-depth-5">
+                        <h4>Contact Us</h4>
+                        <div class="input-field">
+                            <input type="text" id="name" placeholder="Name">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="email" placeholder="Email">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="phone" placeholder="Phone Number">
+                            <label for="phone">Phone</label>
+                        </div>
+                        <div class="input-field">
+                            <textarea class="materialize-textarea" id="message" placeholder="Message"></textarea>
+                            <label for="name">Message</label>
+                        </div>
+                        <input type="submit" value="submit" class="btn blue-grey">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Section: Footer -->
     <footer class="page-footer blue-grey text-darken-1">
@@ -244,14 +273,18 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <!-- Materialize JS -->
     <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+    <!-- Google Maps API -->
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
     <!-- Init Scripts Tags -->
     <script>
         $(document).ready(function () {
-            // Custom and Init JQueries
-            // Init sidenav
+            // Init Sidenav
             $('.button-collapse').sideNav();
 
-            // Scroll Fire
+            // Init Scrollspy
+            $('.scrollspy').scrollSpy();
+
+            // ScrollFire
             const options = [
                 {
                     selector: '.main-text', offset: 0, callback: function (el) {
@@ -260,13 +293,46 @@
                 },
                 {
                     selector: '.navbar-fixed', offset: 1500, callback: function () {
-                        $('nav').removeClass('transparent').addClass('blue-grey darken-3')
+                        $('nav').removeClass('transparent');
+                        $('nav').addClass('blue-grey darken-3');
                     }
-                },
+                }
             ];
+
             Materialize.scrollFire(options);
-            // Init scrollspy
-            $('.scrollspy').scrollSpy();
+
+            const position = [42.361145, -71.057083];
+            const centerPosition = [42.377815, -70.981133];
+
+            function showGoogleMaps() {
+                // Map positions
+                const latLng = new google.maps.LatLng(position[0], position[1]);
+                const centerLatLng = new google.maps.LatLng(centerPosition[0], centerPosition[1]);
+
+                // Map options
+                const mapOptions = {
+                    zoom: 12,
+                    streetViewControl: false,
+                    scaleControl: true,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    center: centerLatLng
+                }
+
+                // Create map
+                map = new google.maps.Map(document.getElementById('googlemap'), mapOptions);
+
+                // Show Marker
+                marker = new google.maps.Marker({
+                    position: latLng,
+                    map: map,
+                    draggable: false,
+                    animation: google.maps.Animation.DROP
+                });
+            }
+
+            // Maps event
+            google.maps.event.addDomListener(window, 'load', showGoogleMaps);
+
         });
     </script>
 </body>
