@@ -87,8 +87,35 @@
             </div>
         </div>
     </header>
-
-
+    <!-- Section: Boxes -->
+    <section class="section-boxes center">
+        <div class="row">
+            <div class="col s12 m6 l3 blue white-text box">
+                <i class="material-icons medium">show_chart</i>
+                <h4>Grow Your Business</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam assumenda perspiciatis tempore
+                    voluptas, dignissimos a unde sint ipsum incidunt sequi.</p>
+            </div>
+            <div class="col s12 m6 l3 purple white-text box">
+                <i class="material-icons medium">people</i>
+                <h4>Professional Advisors</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam assumenda perspiciatis tempore
+                    voluptas, dignissimos a unde sint ipsum incidunt sequi.</p>
+            </div>
+            <div class="col s12 m6 l3 teal white-text box">
+                <i class="material-icons medium">verified_user</i>
+                <h4>Secure You Company</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam assumenda perspiciatis tempore
+                    voluptas, dignissimos a unde sint ipsum incidunt sequi.</p>
+            </div>
+            <div class="col s12 m6 l3 amber darken-4 white-text box">
+                <i class="material-icons medium">account_balance</i>
+                <h4>multiply Your Income</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam assumenda perspiciatis tempore
+                    voluptas, dignissimos a unde sint ipsum incidunt sequi.</p>
+            </div>
+        </div>
+    </section>
     <!-- Scripts -->
     <!-- JQuery -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
@@ -100,6 +127,21 @@
             // Custom and Init JQueries
             // Init sidenav
             $('.button-collapse').sideNav();
+
+            // Scroll Fire
+            const options = [
+                {
+                    selector: '.main-text', offset: 0, callback: function (el) {
+                        Materialize.fadeInImage($(el));
+                    }
+                },
+                {
+                    selector: '.navbar-fixed', offset: 1500, callback: function () {
+                        $('nav').removeClass('transparent').addClass('blue-grey darken-3')
+                    }
+                },
+            ];
+            Materialize.scrollFire(options)
         });
     </script>
 </body>
